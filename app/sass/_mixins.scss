@@ -1,0 +1,83 @@
+
+@mixin transition_animation( $speed:0.3s ) {
+  -webkit-transition: all $speed ease;
+      -moz-transition: all $speed ease;
+      -o-transition: all $speed ease;
+      -ms-transition: all $speed ease;
+      transition: all $speed ease;
+}
+@mixin flex_box( $justify_content: flex-start, $align_item: inherit ) {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: $justify_content;
+	align-items: $align_item;
+}
+@mixin full_width(){
+	width:100%;
+	float: left;
+}
+@mixin padding($top:false, $right:false, $bottom:false, $left:false){
+	@if($top){
+		padding-top:$top;
+	}@if($right){
+		padding-right:$right;
+	}@if($bottom){
+		padding-bottom:$bottom;
+	}@if($left){
+		padding-left:$left;
+	}
+}
+@mixin margin($top:false, $right:false, $bottom:false, $left:false){
+	@if($top){
+		margin-top: $top;
+	}@if($right){
+		margin-right: $right;
+	}@if($bottom){
+		margin-bottom: $bottom;
+	}@if($left){
+		margin-left: $left;
+	}
+}
+
+@mixin Btn( $paddingLeft:false, $paddingRight:false, $top:5px, $bottom:5px, $background:$site-blue  ) {
+	background-color: $background;
+	color: $site-white;
+	@include padding( $top, false, $bottom );
+	border:0;
+
+	@if( $paddingLeft ) {
+		padding-left: $paddingLeft;
+	} @else {
+		padding-left: 20px;
+	}
+
+	@if( $paddingRight ) {
+		padding-right: $paddingRight;
+	} @else {
+		padding-right: 20px;
+	}
+
+}
+
+@mixin BtnHover( $background:$site-blue ) {
+	background-color : darken( $background, 10% );
+}
+
+// @mixin Titles( $fontSize: 36px ) {
+// 	color: $title-color;
+// 	font-size: $fontSize;
+// 	font-weight: 500;
+// 	line-height: 44px;
+// }
+
+@mixin verticalCenter() {
+	-webkit-box-align: center;
+ 	-ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
